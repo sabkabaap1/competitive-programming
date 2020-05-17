@@ -1,0 +1,2 @@
+language = "cpp"
+run = "g++ sol.cpp -o sol && ./sol"
