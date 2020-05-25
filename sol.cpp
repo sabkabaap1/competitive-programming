@@ -1,88 +1,32 @@
-#include "my_macros.h"
+#include <iostream>
+using namespace std;
 
-int solve(int arr[], int n){
-    int lmax=INT_MIN, rmax=INT_MIN, i=0, j=n-1, l=0,r=0, lno=1, rno=1;
+#define si(x)	            scanf("%d",&x)
+#define pi(x)	            printf("%d\n",x)
+#define ps(x)	            printf("%s\n",x)
+#define whltc(tc)           int tc; si(tc); while(tc--)
 
-    if(arr[i]==arr[j]){
-        return arr[i]*n;
-    }
-    else{
-        l=i; r=j;
-        lmax = arr[l]; rmax=arr[r];
-        lno=1;
+#define endl                "\n"
 
-        while(i<j){
-            // fitting arr[i]
-            DBxyz("before",i,j)
+#define hello               ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define world               int n,m,x,y,res;
 
-            if(i+1<j && abs(arr[l]-arr[i+1])<=abs(arr[i+1]-arr[r]))
-            {
-                if( (abs(arr[l]-arr[i+1])==abs(arr[i+1]-arr[r])) && abs(l-i)>abs(i-r) ){
-                    rmax = max(rmax, arr[i-1]);
-                    j--;
-                    rno++;
-                }
-                else{
-                    lmax = max(lmax, arr[i]);
-                    i++;
-                    lno++;
-                }
-            }
-            else if(j-1>i){
-                rmax = max(rmax, arr[i-1]);
-                j--;
-                rno++;
-            }
-            else break;
+#define pa(x)               cout << #x << "=" << x << endl;
+#define pab(x, y)           cout << #x << "=" << x << "," << #y << "=" << y << endl;
+#define pabc(x,y,z)         cout << #x << "=" << x << ",\t" << #y << "=" << y << ",\t" << #z << "=" << z << endl;
+#define pabcd(x,y,z,w)      cout << #x << "=" << x << ",\t" << #y << "=" << y << ",\t" << #z << "=" << z << ",\t" << #w << "=" << w << endl;
 
-            if(i<j){
-                if(j-1>i && abs(arr[l]-arr[j-1])>=abs(arr[j-1]-arr[r])){
-                    if( (abs(arr[l]-arr[j-1])==abs(arr[j-1]-arr[r])) && abs(l-j)<abs(j-r) ){
-                        lmax = max(lmax, arr[j-1]);
-                        i++;
-                        lno++;
-                    }
-                    else{
-                        rmax = max(rmax, arr[j-1]);
-                        j--;
-                        rno++;
-                    }
-                }
-                else if(j-1>i){
-                    lmax = max(lmax, arr[j-1]);
-                    i++;
-                    lno++;
-                }
-                else break;
-            }
-            else    break;
-            DBxyz("after",i,j)
-        }
-
-        DBxyz("final",lno,rno)
-        DBxy(i,j)
-        return lmax*(i+1)+rmax*(n-j);
-
-    }
-}
+int do_it();
 
 int main(){
+	hello world 
+	whltc(t){
+		do_it();
+	}
+	return 0;
+}
 
-    fastio;
-
-    //int arr[]  ={3,1,4};
-    //int arr[] = {5,3,2,4};
-    //int arr[] = {5,3,5,2,1};
-    //int arr[] =  {9,5,3,1};
-    //int arr[] = {1,3,5,9};
-    //int arr[] = {1,1,7,6,6,6};
-    //int arr[] = {6,6,6,7,1,1};
-    int n = sizeof(arr)/sizeof(arr[0]);
-
-    DBarr(arr,n)
-
-    DBx(solve(arr, n))
-
-    return 0;
-
+int do_it(){
+	
+	return 0;
 }
