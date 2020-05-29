@@ -35,22 +35,5 @@ int main()
 
 int do_it(int n, int m, int k){
 	int res;
-	// CASE 1 : m==0
-	if(m==0){
-		res=0;
-	}
-	// CASE 2: N/K>=M 
-	else if(m<=n/k){
-		res=m;
-	}
-	// CASE 3: n/k<m 
-	else{
-		int r1 = n/k;
-		m-=r1;
-		int r2 = ceil((m-n/k)/(k-1));
-		if(r2<=1)	res = r1-1;
-		else
-		res = r1-r2;
-	}
 	return res;
 }
