@@ -13,10 +13,10 @@ using namespace std;
 #define hello               ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define world               int n,m,k,res;
 
-#define pa(x)               cout << #x << "=" << x << endl
-#define pab(x, y)           cout << #x << "=" << x << "," << #y << "=" << y << endl
-#define pabc(x,y,z)         cout << #x << "=" << x << ",\t" << #y << "=" << y << ",\t" << #z << "=" << z << endl
-#define pabcd(x,y,z,w)      cout << #x << "=" << x << ",\t" << #y << "=" << y << ",\t" << #z << "=" << z << ",\t" << #w << "=" << w << endl
+#define px(x)              cout << #x << "=" << x << endl
+#define pxy(x, y)          cout << #x << "=" << x << "," << #y << "=" << y << endl
+#define pxyz(x,y,z)        cout << #x << "=" << x << ",\t" << #y << "=" << y << ",\t" << #z << "=" << z << endl
+#define pxyzw(x,y,z,w)     cout << #x << "=" << x << ",\t" << #y << "=" << y << ",\t" << #z << "=" << z << ",\t" << #w << "=" << w << endl
 
 #define pv(vec)          		cout<< #vec << "=" ; for(auto ele: vec)  cout<< ele <<" ";
 
