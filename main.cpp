@@ -1,76 +1,100 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
-#define si(x)								scanf("%d",&x)
-#define ss(x)								cin>>x;
-#define pi(x)	            	printf("%d\n",x)
-#define pul(x)	            printf("%lu\n",x)
-#define ps(x)	            	printf("%s\n",x)
-#define wltc(tc)            int tc; si(tc); while(tc--)
-#define pb									push_back
-
-#define hello               ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-#define world               int n,i; string a,b;
-
-#define px(x)              	cout << #x << "=" << x << endl
-#define pxy(x, y)          	cout << #x << "=" << x << "," << #y << "=" << y << endl
-#define pxyz(x,y,z)        	cout << #x << "=" << x << ",\t" << #y << "=" << y << ",\t" << #z << "=" << z << endl
-#define pxyzw(x,y,z,w)     	cout << #x << "=" << x << ",\t" << #y << "=" << y << ",\t" << #z << "=" << z << ",\t" << #w << "=" << w << endl
-#define pv(vec)          		cout<< #vec << "=" ; for(auto ele: vec)  cout<< ele <<" ";	cout<<"\n"
-
-#define FOR(i,n)						for(i=0; i<n; i++)
-#define ul                  unsigned long int
-#define isKeyExist(hashtbl, key) (hashtbl.find(key)!=hashtbl.end())
-
-int do_it(string a, string b, int n);  // string , window size
+int checkResponse(int res){
+	if(res=='E')               // X==Y
+		return 0;
+	else if(res=='L')          // X<Y
+		return -1;
+	else 
+		return 1;                // X>Y 
+}
 
 int main()
 {
-	hello world
-	wltc(t){
-		si(n);		ss(a);	ss(b);
-		do_it(a,b,n);
-	}
-	return 0;
-}
+	ios_base::sync_with_stdio(0);	cin.tie(0);	cout.tie(0);
+	
+	int n, y, x, res1, res2, mid,start=1,end;
+	bool find=false;
 
-int do_it(string a, string b, int n){
-	int i=0, flag=1;
+	// INPUT N {1<=x<=N}
+	cin>>n;
+	
 
-	unordered_map<char, int> pp;
+		// questioning all even number	
+		start=1; end=n;
+		while(start<end && find==false){
+			mid = (start+end)/2;
+			mid = mid%2==0?mid:mid+1;            // hemant..! doubt1: should i make mid even because we are aksing question including even guess
 
-	FOR(i,n){
-	    pp[a[i]] = i;
-	}
+			// GUESS
+			printf("%d\n", mid);
+			fflush(stdout);
+			// ALICE RESPONSE
+			cin>>res1;
 
-	unordered_map<char, vector<int>> umap;
+			// GUESS
+			printf("%d\n", mid);                // asking same question again to check wheather alice speaking lie or not
+			fflush(stdout);
+			// ALICE RESPONSE
+			cin>>res2;
 
-	// ITERATE OVER A & B ON SAME INDEX
-	FOR(i,n){
-		if(a[i]==b[i])	continue;
-		// IF A[I] IS UNMATCH WITH TARGET B[I] THEN WE PUT A[I] INDEX IN SET
-		umap[b[i]].pb(i);
-
-		// NOW FINDING THE TARGET CHAR B[I] INDEX IN A[I] IF NOT PERSENT THEN RES -1
-		if(isKeyExist(pp, b[i])){
-			umap[b[i]].pb(pp[b[i]]);
+			if(res1=='E' || res2=='E'){
+				find=true;
+			}
+			else if(res1=='L' && res2=='L'){
+				// x present in lower search space
+				end = mid-1;
+			}
+			else if(res1=='G' && res2=='G'){
+				// x present in heigher search space 
+				start = mid+1;
+			}
+			else{																// doubt2: what if she is lie then what we do
+				// alice speaking lie 
+				continue; 
+			}
+			
 		}
-		else{
-			// TARGET CHAR NOT FIND IN A
-			flag=0;
-			break;
-		}
-	}
 
-	if(flag){
-		for(auto cV: umap){
-			px(cV.second.size());
-			pv(cV.second);
+
+		if(find==false){
+			// questioning all odd number	
+			start=1; end=n;
+			while(start<end && find==false){
+				mid = (start+end)/2;
+				mid = mid%2==0?mid:mid+1;            // hemant..! here i have doubt, should i make mid odd because we are aksing question including odd guess
+
+				// GUESS
+				printf("%d\n", mid);
+				fflush(stdout);
+				// ALICE RESPONSE
+				cin>>res1;
+
+				// GUESS
+				printf("%d\n", mid);              
+				fflush(stdout);
+				// ALICE RESPONSE
+				cin>>res2;
+
+				if(res1=='E' || res2=='E'){
+					find=true;
+				}
+				else if(res1=='L' && res2=='L'){
+					// x present in lower search space
+					end = mid-1;
+				}
+				else if(res1=='G' && res2=='G'){
+					// x present in heigher search space 
+					start = mid+1;
+				}
+				else{
+					// alice speaking lie 
+					continue; 
+				}
+				
+			}
 		}
-	}
-	else
-		px(-1);
 
 	return 0;
 }
