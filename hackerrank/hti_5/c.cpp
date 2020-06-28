@@ -1,5 +1,5 @@
 /* 
-PROBLEM LINK:>
+PROBLEM LINK:> (jewel game)	https://www.hackerrank.com/contests/hack-the-interview-v-asia-pacific/challenges/candy-crush-4
 */
 //#include "macro.h"
 #include <iostream>
