@@ -1,7 +1,7 @@
 /* 
 PROBLEM LINK:>	https://www.codechef.com/problems/DEPCHEF
 */
-//#include "macro.h"
+#include "macro.h"
 //#include <iostream>
 //#include <bits/stdc++.h>
 //#include "../../macro.h"
