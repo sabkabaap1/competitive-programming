@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-// udpate date: 7/2/2020
-// line: 72
+// udpate date: 7/3/2020
+// line: 72 - insert 
+// line: 86 - delete
 
 //------------------------- syntax shortening ----------------------
 #define ll                  long long int
@@ -82,10 +83,3 @@ void pStk(stack<t> st){
 	cout<<"\n";
 }
 
-void inline cp(){
-#ifndef ONLINE_JUDGE
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-	#endif 
-}
