@@ -1,3 +1,2 @@
-
 language = "cpp"
 run = "g++ codechef/practice/begineer/Deputy-Chef.cpp -o main && ./main"
