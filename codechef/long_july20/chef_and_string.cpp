@@ -1,11 +1,11 @@
 /* 
-PROBLEM LINK:>
+PROBLEM LINK:> https://www.codechef.com/JULY20B/problems/CHEFSTR1
 LINKDIN PROFILE :> linkedin.com/in/dheerajpoonia29/
 */
-#include "macro.h"
+//#include "macro.h"
 //#include <iostream>
 //#include <bits/stdc++.h>
-//#include "../../macro.h"
+#include "../../macro.h"
 using namespace std;
 
 void inline cp(){
@@ -24,6 +24,7 @@ int main(){
 	while(t--){
 
 		// code here
+		
 
 	}
 
